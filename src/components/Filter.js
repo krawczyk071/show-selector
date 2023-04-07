@@ -3,9 +3,9 @@ import SearchBar from "./SearchBar";
 
 const Filter = () => {
   return (
-    <div class="filter-bar">
-      <div class="selector">
-        <div class="select">
+    <div className="filter-bar">
+      <div className="selector">
+        <div className="select">
           <select id="standard-select">
             <option value="Option 1">Option 1</option>
             <option value="Option 2">Option 2</option>
@@ -13,7 +13,7 @@ const Filter = () => {
             <option value="Option 4">Option 4</option>
             <option value="Option 5">Option 5</option>
           </select>
-          <span class="focus"></span>
+          <span className="focus"></span>
         </div>
       </div>
       <SearchBar />

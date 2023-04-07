@@ -1,14 +1,19 @@
 import React from "react";
+import { IMAGE_PATH } from "../utils/fetchFromAPI";
 
-const Card = () => {
+const Card = ({ movie }) => {
   return (
-    <div class="card">
-      <img class="card__img" src="./img/popular-movie-1.jpg" alt="cover" />
-      <div class="card__info">
-        <p class="card__title">Title</p>
-        <p class="card__text">Genre</p>
-        <div class="card__icon">
-          <i class="fa fa-search"></i>
+    <div className="card">
+      <img
+        className="card__img"
+        src={IMAGE_PATH + movie.poster_path}
+        alt="cover"
+      />
+      <div className="card__info">
+        <p className="card__title">{movie.title}</p>
+        <p className="card__text">Genre</p>
+        <div className="card__icon">
+          <i className="fa fa-search"></i>
         </div>
       </div>
     </div>

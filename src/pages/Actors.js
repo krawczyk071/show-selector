@@ -3,7 +3,7 @@ import Filter from "../components/Filter";
 
 const Actors = () => {
   return (
-    <section class="layout-lg">
+    <section className="layout-lg">
       <Filter />
     </section>
   );

@@ -2,14 +2,14 @@ import React from "react";
 
 const SearchBar = () => {
   return (
-    <div class="search-bar">
+    <div className="search-bar">
       <input
         type="text"
-        class="ipt ipt-forbtn"
+        className="ipt ipt-forbtn"
         placeholder="What are you looking for?"
       />
-      <button type="submit" class="ipt-btn">
-        <i class="fas fa-search"></i>
+      <button type="submit" className="ipt-btn">
+        <i className="fas fa-search"></i>
       </button>
     </div>
   );
