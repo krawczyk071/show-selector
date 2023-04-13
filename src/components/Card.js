@@ -1,9 +1,11 @@
 import React from "react";
 import { IMAGE_PATH } from "../utils/fetchFromAPI";
+import { useNavigate } from "react-router-dom";
 
 const Card = ({ movie }) => {
+  const navigate = useNavigate();
   return (
-    <div className="card">
+    <div className="card" onClick={() => navigate(`/movie/${movie.id}`)}>
       <img
         className="card__img"
         src={IMAGE_PATH + movie.poster_path}
