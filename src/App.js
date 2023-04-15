@@ -7,6 +7,7 @@ import Trending from "./pages/Trending";
 import Actors from "./pages/Actors";
 import Movie from "./pages/Movie";
 import Favorites from "./pages/Favorites";
+import Search from "./pages/Search";
 
 function App() {
   const [watch, setWatch] = useState(() => {
@@ -41,6 +42,7 @@ function App() {
           <Route path="/actors" element={<Actors />} />
           <Route path="/favorites" element={<Favorites watch={watch} />} />
           <Route path="/movie/:id" element={<Movie />} />
+          <Route path="/search/:q" element={<Search />} />
         </Routes>
       </div>
       <Footer />

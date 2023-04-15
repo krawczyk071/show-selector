@@ -15,10 +15,10 @@ const Navbar = () => {
             <Link to={"/trending"}>Trending</Link>
           </li>
           <li className="navbar__item">
-            <Link to={"/actors"}>Actors</Link>
+            <Link to={"/actors"}>Trailers</Link>
           </li>
           <li className="navbar__item">
-            <Link to={"/favorites"}>Favorites</Link>
+            <Link to={"/favorites"}>Watchlist</Link>
           </li>
         </ul>
         <button className="btn shadow-sm">Push</button>

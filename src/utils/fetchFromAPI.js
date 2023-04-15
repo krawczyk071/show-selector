@@ -18,9 +18,8 @@ const options = {
     api_key: process.env.REACT_APP_TMDB_API_KEY,
   },
 };
-export const fetchFromAPI = async (url, param) => {
-  const oparam = param ? "/" + param : "";
-  const { data } = await axios.get(`${BASE_URL}/${url}${oparam}`, options);
+export const fetchFromAPI = async (url) => {
+  const { data } = await axios.get(`${BASE_URL}/${url}`, options);
   return data;
 };
 

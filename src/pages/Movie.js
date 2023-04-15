@@ -14,15 +14,15 @@ const Movie = () => {
   const [recomend, setRecomend] = useState({ movies: {}, loading: true });
 
   useEffect(() => {
-    fetchFromAPI(MOVIE_API, id)
+    fetchFromAPI(`/movie/${id}`)
       .then((data) => {
         setMovie((prev) => ({ ...prev, detail: data, loading: false }));
-        console.log(data);
+        // console.log(data);
       })
       .catch((err) => console.log(err));
     fetchFromAPI(`/movie/${id}/similar`).then((data) => {
       setRecomend({ movies: data.results, loading: false });
-      console.log(data.results);
+      // console.log(data.results);
     });
   }, [id]);
   return (
