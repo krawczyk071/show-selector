@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { fetchFromAPI } from "../utils/fetchFromAPI";
+import Modal from "../components/Modal";
 
 const YT_BASE = "https://www.youtube.com/watch?v=";
 const YT_THUMB = (ytId) => `https://img.youtube.com/vi/${ytId}/0.jpg`;
@@ -9,6 +10,12 @@ const YT_THUMB = (ytId) => `https://img.youtube.com/vi/${ytId}/0.jpg`;
 const Top10 = () => {
   const [movies, setMovies] = useState([]);
   const [trailers, setTrailers] = useState([]);
+  const [modal, setModal] = useState({ open: false });
+
+  function toggleModal(ytid) {
+    setModal((prev) => ({ ...prev, open: !prev.open, ytid }));
+  }
+
   useEffect(() => {
     fetchFromAPI("/movie/popular").then((data) =>
       setMovies(data.results.slice(0, 10).map((res) => res.id))
@@ -31,12 +38,20 @@ const Top10 = () => {
   }, [movies]);
 
   const links = trailers.map((trailer) => (
-    <a href={`${YT_BASE + trailer.ytid}`}>
-      <img src={YT_THUMB(trailer.ytid)} />
-    </a>
+    <div className="trailer__card" onClick={() => toggleModal(trailer.ytid)}>
+      <img src={YT_THUMB(trailer.ytid)} alt="" />
+    </div>
+
+    // <a href={`${YT_BASE + trailer.ytid}`}>
+    // </a>
   ));
 
-  return <div>{links}</div>;
+  return (
+    <section className="layout-lg">
+      <div className="trailers">{links}</div>
+      <Modal modal={modal} toggleModal={toggleModal} />
+    </section>
+  );
 };
 
 export default Top10;
