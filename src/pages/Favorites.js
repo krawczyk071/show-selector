@@ -1,10 +1,11 @@
 import React from "react";
 import MovieSet from "../components/MovieSet";
 
-const Favorites = () => {
+const Favorites = ({ watch }) => {
+  // const watchlist = watch.map((movie) => <p>{movieId}</p>);
   return (
     <div>
-      <MovieSet />
+      <MovieSet videos={watch} watch={watch} />
     </div>
   );
 };
