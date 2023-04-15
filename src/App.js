@@ -8,6 +8,7 @@ import Actors from "./pages/Actors";
 import Movie from "./pages/Movie";
 import Favorites from "./pages/Favorites";
 import Search from "./pages/Search";
+import Top10 from "./pages/Top10";
 
 function App() {
   const [watch, setWatch] = useState(() => {
@@ -43,6 +44,7 @@ function App() {
           <Route path="/favorites" element={<Favorites watch={watch} />} />
           <Route path="/movie/:id" element={<Movie />} />
           <Route path="/search/:q" element={<Search />} />
+          <Route path="/trailers" element={<Top10 />} />
         </Routes>
       </div>
       <Footer />
