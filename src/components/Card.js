@@ -1,21 +1,21 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { IMAGE_PATH } from "../utils/fetchFromAPI";
 import { useNavigate } from "react-router-dom";
 import { FavContext } from "../context/favorites";
 import { useContext } from "react";
+import Star from "./Star";
 
 const Card = ({ movie, addWatch, watch }) => {
   const [favState, dispatch] = useContext(FavContext);
-  const [liked, setLiked] = useState(() => {
-    return favState.some((w) => w.id === movie.id) ? true : false;
-  });
-  const navigate = useNavigate();
+  const [liked, setLiked] = useState(false);
+  useEffect(() => {
+    setLiked(favState.some((w) => w.id === movie.id) ? true : false);
+  }, [favState, movie]);
   function handleLike(e, movie) {
     e.stopPropagation();
-    // addWatch(movie);
     dispatch({ type: "TOGG_MOVIE", payload: movie });
-    setLiked(true);
   }
+  const navigate = useNavigate();
   return (
     <div className="card" onClick={() => navigate(`/movie/${movie.id}`)}>
       <img
@@ -26,12 +26,8 @@ const Card = ({ movie, addWatch, watch }) => {
       <div className="card__info">
         <p className="card__title">{movie.title}</p>
         <p className="card__text">Genre</p>
-        <div className="card__icon" onClick={(e) => handleLike(e, movie)}>
-          {liked ? (
-            <i className="fa-solid fa-star"></i>
-          ) : (
-            <i className="fa-regular fa-star"></i>
-          )}
+        <div onClick={(e) => handleLike(e, movie)}>
+          <Star liked={liked} />
         </div>
       </div>
     </div>
