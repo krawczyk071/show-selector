@@ -1,6 +1,7 @@
 import React from "react";
 import Slider from "react-slick";
 import Hero from "./Hero";
+import { herosData } from "../utils/data";
 
 function PrevArrow(props) {
   const { className, style, onClick } = props;
@@ -23,14 +24,9 @@ const BigSlider = () => {
     autoplaySpeed: 8000,
     // prevArrow: <PrevArrow />,
   };
+  const heros = herosData.map((hero) => <Hero key={hero.title} data={hero} />);
 
-  return (
-    <Slider {...settings}>
-      <Hero />
-      <Hero />
-      <Hero />
-    </Slider>
-  );
+  return <Slider {...settings}>{heros}</Slider>;
 };
 
 export default BigSlider;

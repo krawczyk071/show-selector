@@ -19,7 +19,9 @@ const Navbar = () => {
             <Link to={"/trailers"}>Trailers</Link>
           </li>
           <li className="navbar__item">
-            <Link to={"/favorites"}>Watchlist</Link>
+            <Link to={"/favorites"}>
+              Watchlist <i className="fa-solid fa-star"></i>
+            </Link>
           </li>
         </ul>
         {/* <button className="btn shadow-sm">Push</button> */}

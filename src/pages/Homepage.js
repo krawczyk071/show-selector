@@ -1,12 +1,17 @@
 import MovieSet from "../components/MovieSet";
 import React, { useEffect, useState } from "react";
-import { fetchFromAPI, DISCOVER_API } from "../utils/fetchFromAPI";
+import { fetchFromAPI } from "../utils/fetchFromAPI";
 import BigSlider from "../components/BigSlider";
 
 const Homepage = (props) => {
   const [videos, setVideos] = useState([]);
   useEffect(() => {
-    fetchFromAPI(DISCOVER_API).then((data) => setVideos(data.results));
+    const source = () => {
+      const choices = ["movie/popular", "movie/now_playing"];
+      const index = Math.floor(Math.random() * choices.length);
+      return choices[index];
+    };
+    fetchFromAPI(source()).then((data) => setVideos(data.results));
   }, []);
   // console.log(videos);
   return (
