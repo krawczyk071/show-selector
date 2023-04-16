@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { fetchFromAPI } from "../utils/fetchFromAPI";
 
 const SearchBar = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -12,9 +11,6 @@ const SearchBar = () => {
   }
   function handleChange(e) {
     setSearchTerm(e.target.value);
-    // fetchFromAPI(`search/keyword?query=${e.target.value}`).then((data) => {
-    //   setTips(data.results.map((res) => res.name));
-    // });
   }
 
   return (
@@ -23,9 +19,14 @@ const SearchBar = () => {
         <input
           type="text"
           className="ipt ipt-forbtn"
-          placeholder="What are you looking for?"
+          placeholder="Search"
           value={searchTerm}
           onChange={(e) => handleChange(e)}
+          onKeyDown={(e) => {
+            if (e.key === "Enter") {
+              handleSubmit();
+            }
+          }}
         />
         <button type="submit" className="ipt-btn" onClick={handleSubmit}>
           <i className="fas fa-search"></i>

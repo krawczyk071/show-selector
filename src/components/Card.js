@@ -16,19 +16,18 @@ const Card = ({ movie, addWatch, watch }) => {
     dispatch({ type: "TOGG_MOVIE", payload: movie });
   }
   const navigate = useNavigate();
+  const cover = movie.poster_path
+    ? IMAGE_PATH + movie.poster_path
+    : "/img/noimg.jpg";
   return (
     <div className="card" onClick={() => navigate(`/movie/${movie.id}`)}>
-      <img
-        className="card__img"
-        src={IMAGE_PATH + movie.poster_path}
-        alt="cover"
-      />
+      <img className="card__img" src={cover} alt="cover" />
       <div className="card__info">
         <p className="card__title">{movie.title}</p>
-        <p className="card__text">Genre</p>
-        <div onClick={(e) => handleLike(e, movie)}>
-          <Star liked={liked} />
-        </div>
+        {/* <p className="card__text">Genre</p> */}
+      </div>
+      <div className="card__icon" onClick={(e) => handleLike(e, movie)}>
+        <Star liked={liked} />
       </div>
     </div>
   );

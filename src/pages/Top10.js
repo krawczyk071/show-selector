@@ -48,6 +48,7 @@ const Top10 = () => {
 
   return (
     <section className="layout-lg">
+      <h1>Top 10 Movies Trailers</h1>
       <div className="trailers">{links}</div>
       <Modal modal={modal} toggleModal={toggleModal} />
     </section>

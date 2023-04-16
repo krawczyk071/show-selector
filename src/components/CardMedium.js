@@ -4,17 +4,15 @@ import { useNavigate } from "react-router-dom";
 
 const CardMedium = ({ movie }) => {
   const navigate = useNavigate();
-
+  const photo = movie.poster_path
+    ? IMAGE_PATH + movie.poster_path
+    : "/img/noimg.jpg";
   return (
     <div
       className="card card--medium"
       onClick={() => navigate(`/movie/${movie.id}`)}
     >
-      <img
-        className="card__img"
-        src={IMAGE_PATH + movie.poster_path}
-        alt="cover"
-      />
+      <img className="card__img" src={photo} alt="cover" />
       <div className="card__info">
         <p className="card__title">{movie.title}</p>
         <p className="card__text">Genre</p>

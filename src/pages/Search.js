@@ -15,8 +15,12 @@ const Search = () => {
 
   return (
     <div>
-      search for {q}
-      {!!movies.length ? <MovieSet videos={movies} /> : <p>No results</p>}
+      <p className="layout-lg">Results for: {q}</p>
+      {!!movies.length ? (
+        <MovieSet videos={movies} />
+      ) : (
+        <p className="layout-lg">No results</p>
+      )}
     </div>
   );
 };

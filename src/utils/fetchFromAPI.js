@@ -29,14 +29,18 @@ export const fetchFromAPI = async (url) => {
 // /movie/{movie_id}/recommendations
 // /movie/{movie_id}/similar
 // /movie/{movie_id}/reviews
+
+// /movie/{movie_id}/keywords
+
+// /movie/{movie_id}/videos
+
 // /movie/popular
 // /movie/now_playing
 // /movie/top_rated
 
 // /trending/{media_type}/{time_window}
 // /trending/movie/week
-// movie/person
-// day/week
+// movie||person, day||week
 
 // /person/{person_id}
 // /person/{person_id}/images

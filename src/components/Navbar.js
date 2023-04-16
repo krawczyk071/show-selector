@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import SearchBar from "./SearchBar";
 const Navbar = () => {
   return (
     <div className="header">
@@ -15,13 +16,14 @@ const Navbar = () => {
             <Link to={"/trending"}>Trending</Link>
           </li>
           <li className="navbar__item">
-            <Link to={"/actors"}>Trailers</Link>
+            <Link to={"/trailers"}>Trailers</Link>
           </li>
           <li className="navbar__item">
             <Link to={"/favorites"}>Watchlist</Link>
           </li>
         </ul>
-        <button className="btn shadow-sm">Push</button>
+        {/* <button className="btn shadow-sm">Push</button> */}
+        <SearchBar />
       </nav>
     </div>
   );
