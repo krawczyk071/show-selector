@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 const SearchBar = () => {
   const [searchTerm, setSearchTerm] = useState("");
-  const [tips, setTips] = useState("");
+  const [tips] = useState("");
 
   const navigate = useNavigate();
   function handleSubmit() {

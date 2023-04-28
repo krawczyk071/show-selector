@@ -1,6 +1,7 @@
 import React from "react";
 import YouTube from "react-youtube";
 
+// https://www.w3schools.com/howto/howto_css_responsive_iframes.asp
 const Modal = ({ modal: { open, ytid }, toggleModal }) => {
   const opts = {
     height: "720",

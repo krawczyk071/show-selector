@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { fetchFromAPI } from "../utils/fetchFromAPI";
 import Modal from "../components/Modal";
 
-const YT_BASE = "https://www.youtube.com/watch?v=";
+// const YT_BASE = "https://www.youtube.com/watch?v=";
 const YT_THUMB = (ytId) => `https://img.youtube.com/vi/${ytId}/0.jpg`;
 // https://i3.ytimg.com/vi/${ytId}/maxresdefault.jpg
 // http://i3.ytimg.com/vi/${ytId}/hqdefault.jpg
