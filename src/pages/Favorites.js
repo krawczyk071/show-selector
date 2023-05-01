@@ -7,11 +7,7 @@ const Favorites = () => {
   const [favState] = useContext(FavContext);
 
   // const watchlist = watch.map((movie) => <p>{movieId}</p>);
-  return (
-    <div>
-      <MovieSet videos={favState} />
-    </div>
-  );
+  return <MovieSet videos={favState} />;
 };
 
 export default Favorites;

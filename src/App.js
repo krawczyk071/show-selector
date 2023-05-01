@@ -9,10 +9,12 @@ import Favorites from "./pages/Favorites";
 import Search from "./pages/Search";
 import Top10 from "./pages/Top10";
 import { FavProvider } from "./context/favorites";
+import ScrollToTop from "./components/scrollToTop";
 
 function App() {
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <Navbar />
       <div className="container">
         <FavProvider>

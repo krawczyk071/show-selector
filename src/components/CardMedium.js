@@ -6,7 +6,7 @@ const CardMedium = ({ movie }) => {
   const navigate = useNavigate();
   const photo = movie.poster_path
     ? IMAGE_PATH + movie.poster_path
-    : "/img/noimg.jpg";
+    : "/img/noimg.svg";
   return (
     <div
       className="card card--medium"

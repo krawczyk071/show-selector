@@ -18,7 +18,7 @@ const Card = ({ movie, addWatch, watch }) => {
   const navigate = useNavigate();
   const cover = movie.poster_path
     ? IMAGE_PATH + movie.poster_path
-    : "/img/noimg.jpg";
+    : "/img/noimg.svg";
   return (
     <div className="card" onClick={() => navigate(`/movie/${movie.id}`)}>
       <img className="card__img" src={cover} alt="cover" />

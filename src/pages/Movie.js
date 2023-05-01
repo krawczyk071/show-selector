@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Detail from "../components/Detail";
 import Loader from "../components/Loader";
-import Scroller from "../components/Scroller";
 import { useParams } from "react-router-dom";
 
 import { fetchFromAPI } from "../utils/fetchFromAPI";
@@ -54,16 +53,18 @@ const Movie = () => {
     // console.log(data.results);
   }, [id]);
   return (
-    <div>
+    <>
       {movie.loading || cast.loading || videos.loading ? (
         <Loader />
       ) : (
-        <Detail movie={movie.data} cast={cast.data} trailer={videos.data} />
+        <Detail
+          movie={movie.data}
+          cast={cast.data}
+          trailer={videos.data}
+          recomend={recomend}
+        />
       )}
-      <section className="layout-lg">
-        {recomend.loading ? <Loader /> : <Scroller movies={recomend.movies} />}
-      </section>
-    </div>
+    </>
   );
 };
 

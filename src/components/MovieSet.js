@@ -5,9 +5,9 @@ const MovieSet = ({ videos }) => {
   const cards = videos.map((video) => <Card key={video.id} movie={video} />);
 
   return (
-    <section className="layout-lg">
-      <div className="library">{cards}</div>
-    </section>
+    <div className="layout-lg">
+      <div className="library ">{cards}</div>
+    </div>
   );
 };
 

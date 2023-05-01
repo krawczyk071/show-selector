@@ -4,6 +4,8 @@ import PersonCard from "./PersonCard";
 import SingleYT from "./SingleYT";
 import Star from "./Star";
 import { FavContext } from "../context/favorites";
+import Scroller from "../components/Scroller";
+import Loader from "./Loader";
 // backdrop_path
 // poster_path
 // overview
@@ -11,7 +13,7 @@ import { FavContext } from "../context/favorites";
 // vote_average
 // vote_count
 
-const Detail = ({ movie, cast, trailer }) => {
+const Detail = ({ movie, cast, trailer, recomend }) => {
   const [favState, dispatch] = useContext(FavContext);
   const [liked, setLiked] = useState(false);
   useEffect(() => {
@@ -67,6 +69,9 @@ const Detail = ({ movie, cast, trailer }) => {
         </div>
         <SingleYT ytid={trailer} />
       </div>
+      <section className="layout-lg">
+        {recomend.loading ? <Loader /> : <Scroller movies={recomend.movies} />}
+      </section>
     </>
   );
 };
