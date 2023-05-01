@@ -7,6 +7,9 @@ const Favorites = () => {
   const [favState] = useContext(FavContext);
 
   // const watchlist = watch.map((movie) => <p>{movieId}</p>);
+  if (favState.length === 0) {
+    return <p className="layout-lg">Start adding some movies to the list</p>;
+  }
   return <MovieSet videos={favState} />;
 };
 

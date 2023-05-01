@@ -13,7 +13,6 @@ const Homepage = (props) => {
     };
     fetchFromAPI(source()).then((data) => setVideos(data.results));
   }, []);
-  // console.log(videos);
   return (
     <div>
       <section className="layout-lg">

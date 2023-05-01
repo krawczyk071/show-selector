@@ -10,7 +10,7 @@ const Search = () => {
     fetchFromAPI(`search/movie?query=${q}`).then((data) =>
       setMovies(data.results)
     );
-    fetchFromAPI(`search/keyword?query=${q}`).then((data) => console.log(data));
+    // fetchFromAPI(`search/keyword?query=${q}`).then((data) => console.log(data));
   }, [q]);
 
   return (

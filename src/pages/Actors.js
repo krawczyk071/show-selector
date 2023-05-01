@@ -17,7 +17,7 @@ const Actors = () => {
       <YouTube
         videoId="2g811Eo7K8U"
         opts={opts}
-        onEnd={() => console.log("fin")}
+        onEnd={() => console.log("YTend")}
       />
     </section>
   );

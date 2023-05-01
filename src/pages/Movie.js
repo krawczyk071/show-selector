@@ -17,7 +17,6 @@ const Movie = () => {
     fetchFromAPI(`/movie/${id}`)
       .then((data) => {
         setMovie((prev) => ({ ...prev, data: data, loading: false }));
-        console.log(data);
       })
       .catch((err) => console.log(err));
 
@@ -34,7 +33,6 @@ const Movie = () => {
           data: data.cast.slice(0, 5),
           loading: false,
         }));
-        console.log(data.cast);
       })
       .catch((err) => console.log(err));
 
@@ -50,7 +48,6 @@ const Movie = () => {
         }));
       })
       .catch((err) => console.log(err));
-    // console.log(data.results);
   }, [id]);
   return (
     <>

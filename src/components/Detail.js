@@ -6,12 +6,6 @@ import Star from "./Star";
 import { FavContext } from "../context/favorites";
 import Scroller from "../components/Scroller";
 import Loader from "./Loader";
-// backdrop_path
-// poster_path
-// overview
-// tagline
-// vote_average
-// vote_count
 
 const Detail = ({ movie, cast, trailer, recomend }) => {
   const [favState, dispatch] = useContext(FavContext);
@@ -23,10 +17,10 @@ const Detail = ({ movie, cast, trailer, recomend }) => {
     e.stopPropagation();
     dispatch({ type: "TOGG_MOVIE", payload: movie });
   }
-  // const bg =
-  //   "https://static.tvmaze.com/uploads/images/original_untouched/0/2400.jpg";
   const genreArr = movie.genres.map((genre) => (
-    <span className="detail__tag">{genre.name}</span>
+    <span className="detail__tag" key={genre.name}>
+      {genre.name}
+    </span>
   ));
   const actors = cast.map((actor) => <PersonCard actor={actor} />);
   const {

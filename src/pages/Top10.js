@@ -38,12 +38,13 @@ const Top10 = () => {
   }, [movies]);
 
   const links = trailers.map((trailer) => (
-    <div className="trailer__card" onClick={() => toggleModal(trailer.ytid)}>
+    <div
+      className="trailer__card"
+      key={trailer.ytid}
+      onClick={() => toggleModal(trailer.ytid)}
+    >
       <img src={YT_THUMB(trailer.ytid)} alt="" />
     </div>
-
-    // <a href={`${YT_BASE + trailer.ytid}`}>
-    // </a>
   ));
 
   return (
