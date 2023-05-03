@@ -1,7 +1,7 @@
 const Loader = () => {
   return (
-    <div className="loader__main">
-      <div className="loader"></div>
+    <div className="flex-1 flex items-center justify-center flex-col">
+      <div className="myloader"></div>
     </div>
   );
 };

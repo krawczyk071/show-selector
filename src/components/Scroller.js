@@ -16,7 +16,7 @@ const Scroller = ({ movies }) => {
   };
 
   return (
-    <div className="scroller">
+    <div className="my-4">
       <h1>Recomended:</h1>
       <Slider {...settings}>{cards}</Slider>
     </div>

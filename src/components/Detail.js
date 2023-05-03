@@ -18,7 +18,7 @@ const Detail = ({ movie, cast, trailer, recomend }) => {
     dispatch({ type: "TOGG_MOVIE", payload: movie });
   }
   const genreArr = movie.genres.map((genre) => (
-    <span className="detail__tag" key={genre.name}>
+    <span className="bg-gray-500 p-1 m-1 rounded-md" key={genre.name}>
       {genre.name}
     </span>
   ));
@@ -35,35 +35,46 @@ const Detail = ({ movie, cast, trailer, recomend }) => {
   return (
     <>
       <div
-        className="poster"
+        className="bg-auto bg-top min-h-[500px] flex items-end pb-12 text-tlight relative  "
         style={{
           backgroundImage: `linear-gradient(rgba(0, 0, 0, 0), rgb(0, 0, 0)),
         url(${BACKDROP_PATH + backdrop_path})`,
         }}
       >
-        <div className="layout-lg poster__body">
-          <h1 className="poster__title">{title}</h1>
-          <p className="poster__text">{tagline}</p>
+        <div
+          className="absolute left-0 top-0 w-full h-full"
+          style={{
+            background: `linear-gradient(
+          90deg,
+          #000 10%,
+          rgba(0, 0, 0, 0) 30%,
+          rgba(0, 0, 0, 0) 70%,
+          #000 90%)`,
+          }}
+        ></div>
+        <div className="mx-auto px-8 max-w-5xl relative z-10 w-full">
+          <h1 className="text-7xl mt-0 leading-none mb-3">{title}</h1>
+          <p>{tagline}</p>
         </div>
       </div>
-      <div className="detail layout-lg">
-        <div className="detail__info">
+      <div className="mx-auto px-8 max-w-5xl">
+        <div className="flex gap-4 items-center justify-end">
           <div>Duration: {runtime} mins.</div>
           <div>Rating: {`${vote_average} (${vote_count} votes)`}</div>
           <div onClick={(e) => handleLike(e, movie)}>
             <Star liked={liked} />
           </div>
         </div>
-        <div className="detail__text">{overview}</div>
+        <div className="text-base my-4">{overview}</div>
         <div>{genreArr}</div>
 
-        <div className="actors">
+        <div className="my-4">
           <h1>Cast</h1>
-          <div className="actors__list">{actors}</div>
+          <div className="flex items-center justify-between my-4">{actors}</div>
         </div>
         <SingleYT ytid={trailer} />
       </div>
-      <section className="layout-lg">
+      <section className="mx-auto px-8 max-w-5xl">
         {recomend.loading ? <Loader /> : <Scroller movies={recomend.movies} />}
       </section>
     </>

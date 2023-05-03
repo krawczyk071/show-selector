@@ -1,0 +1,16 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,700;1,700&family=Bakbak+One&family=Gurajada&family=Kumar+One&family=Righteous&display=swap");
+
+:root {
+  --color-yellow: #dedf40;
+  --color-green: #62cb5c;
+  --color-blue: #00bbcb;
+  --color-primary: #ab79d6;
+  --color-secondary: #d367c1;
+  --gradient1: var(--color-secondary) 10%, var(--color-yellow) 25%,
+    var(--color-green) 50%, var(--color-blue) 75%, var(--color-primary) 90%;
+}
+.header {
+  background: linear-gradient(to right, var(--gradient1));
+}

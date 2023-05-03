@@ -15,7 +15,7 @@ const Homepage = (props) => {
   }, []);
   return (
     <div>
-      <section className="layout-lg">
+      <section className="mx-auto px-8 max-w-5xl">
         <BigSlider />
       </section>
       <MovieSet videos={videos} />

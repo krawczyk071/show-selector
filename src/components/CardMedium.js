@@ -12,11 +12,13 @@ const CardMedium = ({ movie }) => {
       className="card card--medium"
       onClick={() => navigate(`/movie/${movie.id}`)}
     >
-      <img className="card__img" src={photo} alt="cover" />
-      <div className="card__info">
-        <p className="card__title">{movie.title}</p>
-        <p className="card__text">Genre</p>
-        <div className="card__icon">
+      <img className="max-w-full block" src={photo} alt="cover" />
+      <div className="bg-gray-700/70 text-tlight absolute bottom-0 w-full flex flex-col">
+        <p className="text-base m-0 py-1 px-4 h-20 overflow-hidden">
+          {movie.title}
+        </p>
+        <p className="text-sm m-0 py-1 px-4">Genre</p>
+        <div className="absolute top-0 right-1 flex items-center justify-center py-2 px-0">
           <i className="fa fa-search"></i>
         </div>
       </div>

@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .myloader {
+    @apply border-8 border-solid border-gray-300 border-t-8  border-t-blue-500 rounded-full w-40 h-40 animate-spin;
+  }
+  .myipt {
+    @apply border border-solid border-gray-500 rounded-md py-1 px-3 text-base bg-bgdark text-white block w-full transition-all duration-150;
+  }
+  .myipt-btn {
+    @apply border border-solid border-gray-500 rounded-e-md  text-lg bg-gray-500 text-center  text-white block w-10 transition-all duration-150 cursor-pointer hover:bg-bgdark;
+  }
+}

@@ -15,10 +15,10 @@ const SearchBar = () => {
 
   return (
     <>
-      <div className="search-bar">
+      <div className="w-52 flex-none flex p-1 ">
         <input
           type="text"
-          className="ipt ipt-forbtn"
+          className="myipt rounded-e-none"
           placeholder="Search"
           value={searchTerm}
           onChange={(e) => handleChange(e)}
@@ -28,7 +28,7 @@ const SearchBar = () => {
             }
           }}
         />
-        <button type="submit" className="ipt-btn" onClick={handleSubmit}>
+        <button type="submit" className="myipt-btn" onClick={handleSubmit}>
           <i className="fas fa-search"></i>
         </button>
       </div>
