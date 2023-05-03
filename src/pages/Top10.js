@@ -39,7 +39,7 @@ const Top10 = () => {
 
   const links = trailers.map((trailer) => (
     <div
-      className="trailer__card"
+      className="w-[250px] cursor-pointer first-of-type:col-span-3 first-of-type:w-5/6 [&>img]:w-full"
       key={trailer.ytid}
       onClick={() => toggleModal(trailer.ytid)}
     >
@@ -50,7 +50,7 @@ const Top10 = () => {
   return (
     <section className="mx-auto px-8 max-w-5xl">
       <h1>Top 10 Movies Trailers</h1>
-      <div className="trailers">{links}</div>
+      <div className="grid gap-2 grid-cols-3 justify-items-center">{links}</div>
       <Modal modal={modal} toggleModal={toggleModal} />
     </section>
   );

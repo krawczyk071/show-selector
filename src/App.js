@@ -15,7 +15,7 @@ function App() {
     <BrowserRouter>
       <ScrollToTop />
       <Navbar />
-      <div className="mycontainer">
+      <div className="flex-1 flex flex-col">
         <FavProvider>
           <Routes>
             <Route exact path="/" element={<Homepage />} />

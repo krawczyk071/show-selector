@@ -14,3 +14,15 @@
 .header {
   background: linear-gradient(to right, var(--gradient1));
 }
+
+body {
+  font-family: "Poppins", sans-serif;
+  color: wheat;
+  background: #0d0118;
+  height: 100vh;
+}
+#root {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
