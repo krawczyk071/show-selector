@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { fetchFromAPI } from "../utils/fetchFromAPI";
 import Modal from "../components/Modal";
+import Loader from "../components/Loader";
+import Alert from "../components/Alert";
 
 // const YT_BASE = "https://www.youtube.com/watch?v=";
 const YT_THUMB = (ytId) => `https://img.youtube.com/vi/${ytId}/0.jpg`;
@@ -10,6 +12,7 @@ const YT_THUMB = (ytId) => `https://img.youtube.com/vi/${ytId}/0.jpg`;
 const Top10 = () => {
   const [movies, setMovies] = useState([]);
   const [trailers, setTrailers] = useState([]);
+  const [alerts, setAlerts] = useState("loading");
   const [modal, setModal] = useState({ open: false });
 
   function toggleModal(ytid) {
@@ -17,9 +20,12 @@ const Top10 = () => {
   }
 
   useEffect(() => {
-    fetchFromAPI("/movie/popular").then((data) =>
-      setMovies(data.results.slice(0, 10).map((res) => res.id))
-    );
+    fetchFromAPI("/movie/popular")
+      .then((data) => setMovies(data.results.slice(0, 10).map((res) => res.id)))
+      .catch((err) => {
+        console.log(err);
+        setAlerts("error");
+      });
   }, []);
 
   useEffect(() => {
@@ -34,8 +40,22 @@ const Top10 = () => {
       }
       return tlist;
     };
-    listfetch().then((res) => setTrailers(res));
+    listfetch()
+      .then((res) => {
+        setTrailers(res);
+        setAlerts("ok");
+      })
+      .catch((err) => {
+        console.log(err);
+        setAlerts("error");
+      });
   }, [movies]);
+
+  if (alerts === "loading") {
+    return <Loader />;
+  } else if (alerts === "error") {
+    return <Alert msg={"Sorry cannot connect to DB. Try in few minutes."} />;
+  }
 
   const links = trailers.map((trailer) => (
     <div

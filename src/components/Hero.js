@@ -10,7 +10,7 @@ const Hero = ({ data }) => {
     >
       <div className="flex-none w-2/5 self-center text-white p-4">
         <h1 className="text-2xl font-bold">{data.title}</h1>
-        <h2 className="text-lg text-tlight">{data.text}</h2>
+        <h2 className="text-lg text-tlight hidden sm:block">{data.text}</h2>
       </div>
       <div className="flex-none w-3/5 relative">
         <div
@@ -33,7 +33,7 @@ const Hero = ({ data }) => {
           }}
         ></div>
         <img
-          className="w-full absolute top-[-150px] left-0"
+          className="w-full absolute sm:top-[-150px] left-0"
           src={data.img}
           alt=""
         />

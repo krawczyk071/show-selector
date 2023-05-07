@@ -4,6 +4,7 @@ import Loader from "../components/Loader";
 import { useParams } from "react-router-dom";
 
 import { fetchFromAPI } from "../utils/fetchFromAPI";
+import Alert from "../components/Alert";
 
 const Movie = () => {
   const { id } = useParams();
@@ -12,19 +13,26 @@ const Movie = () => {
   const [cast, setCast] = useState({ data: {}, loading: true });
   const [videos, setVideos] = useState({ data: {}, loading: true });
   const [recomend, setRecomend] = useState({ movies: {}, loading: true });
+  const [alerts, setAlerts] = useState("loading");
 
   useEffect(() => {
     fetchFromAPI(`/movie/${id}`)
       .then((data) => {
         setMovie((prev) => ({ ...prev, data: data, loading: false }));
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        console.log(err);
+        setAlerts("error");
+      });
 
     fetchFromAPI(`/movie/${id}/similar`)
       .then((data) => {
         setRecomend({ movies: data.results, loading: false });
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        console.log(err);
+        setAlerts("error");
+      });
 
     fetchFromAPI(`/movie/${id}/credits`)
       .then((data) => {
@@ -34,7 +42,10 @@ const Movie = () => {
           loading: false,
         }));
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        console.log(err);
+        setAlerts("error");
+      });
 
     fetchFromAPI(`/movie/${id}/videos`)
       .then((data) => {
@@ -47,8 +58,16 @@ const Movie = () => {
           loading: false,
         }));
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        console.log(err);
+        // setAlerts("error");
+      });
   }, [id]);
+
+  if (alerts === "error") {
+    return <Alert msg={"Sorry cannot connect to DB. Try in few minutes."} />;
+  }
+
   return (
     <>
       {movie.loading || cast.loading || videos.loading ? (
