@@ -11,7 +11,7 @@ const SingleYT = ({ ytid }) => {
     },
   };
   return ytid ? (
-    <div className="flex flex-col items-center my-4">
+    <div className="flex flex-col items-center justify-center justify-items-center my-4">
       <h1 className="self-start">Trailer</h1>
       <div className="flex-1">
         <YouTube videoId={ytid} opts={opts} />

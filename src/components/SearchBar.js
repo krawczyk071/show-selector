@@ -15,7 +15,7 @@ const SearchBar = () => {
 
   return (
     <>
-      <div className="w-52 flex-none flex p-1 ">
+      <div className="w-52 flex-none flex p-1 order-3">
         <input
           type="text"
           className="myipt rounded-e-none"

@@ -9,12 +9,16 @@ const Favorites = () => {
   // const watchlist = watch.map((movie) => <p>{movieId}</p>);
   if (favState.length === 0) {
     return (
-      <p className="mx-auto px-8 max-w-5xl">
-        Start adding some movies to the list
-      </p>
+      <div className="mx-auto px-8 max-w-5xl flex items-center justify-center h-full">
+        <p className="flex-1 my-4">Start adding some movies to the list</p>
+      </div>
     );
   }
-  return <MovieSet videos={favState} />;
+  return (
+    <div>
+      <MovieSet videos={favState} />;
+    </div>
+  );
 };
 
 export default Favorites;

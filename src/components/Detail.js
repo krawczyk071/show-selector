@@ -70,13 +70,17 @@ const Detail = ({ movie, cast, trailer, recomend }) => {
 
         <div className="my-4">
           <h1>Cast</h1>
-          <div className="flex items-center justify-between my-4">{actors}</div>
+          <div className="flex flex-wrap items-center justify-between my-4">
+            {actors}
+          </div>
         </div>
-        <SingleYT ytid={trailer} />
+        <div className="w-80 sm:w-full overflow-hidden">
+          <SingleYT ytid={trailer} />
+        </div>
       </div>
-      <section className="mx-auto px-8 max-w-5xl">
+      <div className="mx-auto px-8 max-w-md sm:max-w-xl md:max-w-3xl lg:max-w-5xl">
         {recomend.loading ? <Loader /> : <Scroller movies={recomend.movies} />}
-      </section>
+      </div>
     </>
   );
 };

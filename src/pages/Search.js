@@ -15,7 +15,7 @@ const Search = () => {
 
   return (
     <div>
-      <p className="mx-auto px-8 max-w-5xl">Results for: {q}</p>
+      <p className="mx-auto px-8 max-w-5xl py-2">Results for: {q}</p>
       {!!movies.length ? (
         <MovieSet videos={movies} />
       ) : (

@@ -39,7 +39,7 @@ const Top10 = () => {
 
   const links = trailers.map((trailer) => (
     <div
-      className="w-[250px] cursor-pointer first-of-type:col-span-3 first-of-type:w-5/6 [&>img]:w-full"
+      className="w-[230px] cursor-pointer sm:first-of-type:col-span-2 md:first-of-type:col-span-3 first-of-type:w-5/6 [&>img]:w-full rounded-lg overflow-hidden"
       key={trailer.ytid}
       onClick={() => toggleModal(trailer.ytid)}
     >
@@ -48,11 +48,13 @@ const Top10 = () => {
   ));
 
   return (
-    <section className="mx-auto px-8 max-w-5xl">
-      <h1>Top 10 Movies Trailers</h1>
-      <div className="grid gap-2 grid-cols-3 justify-items-center">{links}</div>
+    <div className="mx-auto px-4 max-w-5xl">
+      <h1 className="my-2">Top 10 Movies Trailers</h1>
+      <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 justify-items-center mb-4">
+        {links}
+      </div>
       <Modal modal={modal} toggleModal={toggleModal} />
-    </section>
+    </div>
   );
 };
 
